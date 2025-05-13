@@ -53,16 +53,14 @@ tableHeadRow.addEventListener('click', (e) => {
 
 // ------------------Selecting function-----------------------------
 
-const rows = Array.from(tableBody.children);
+tableBody.addEventListener('click', (e) => {
+  const clickedRow = e.target.closest('tr');
 
-rows.forEach((row) => {
-  row.addEventListener('click', (e) => {
-    rows.forEach((r) => {
-      r.classList.remove('active');
-    });
-
-    row.classList.add('active');
+  Array.from(tableBody.children).forEach((row) => {
+    row.classList.remove('active');
   });
+
+  clickedRow.classList.add('active');
 });
 
 // --------------------Form adding-----------------------------
